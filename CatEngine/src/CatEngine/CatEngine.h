@@ -1,7 +1,21 @@
 #pragma once
 
-// Main
+// For use by CatEngine Applications
 
-#include "Core/Application.h"
-#include "Core/Log.h"
+#include "CatEngine/Core/Application.h"
+#include "CatEngine/Core/Log.h"
+#include "CatEngine/Core/TimeStep.h"
 
+#include "CatEngine/Core/Input.h"
+#include "CatEngine/Core/KeyCodes.h"
+#include "CatEngine/Core/MouseButtonCodes.h"
+
+#include "CatEngine/Layers/Layer.h"
+
+// Renderer ----------------------------
+
+// Scene -------------------------------
+
+// Runtime -----------------------------
+
+// Profiling ---------------------------

@@ -61,15 +61,15 @@ namespace CatEngine {
 
                 // Initializing GLFW
                 if (!s_GLFWInitialized) {
-                        if(!glfwInit())
-			{
+                        int success = glfwInit();
                         glfwSetErrorCallback(GLFWErrorCallback);
                         CE_API_ASSERT(success, "Could not load GLFW!");
-			}
 		}
 
                 m_Window = glfwCreateWindow((int)props.Width, (int)props.Height, m_Data.Title.c_str(), nullptr, nullptr);
 		
+		glfwMakeContextCurrent(m_Window);
+
 		glfwSetWindowUserPointer(m_Window, &m_Data);
 
                 // Setting GLFW Callbacks-------------------------------------------------------------------

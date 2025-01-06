@@ -1,19 +1,25 @@
 #include "CatEngine.h"
 #include "Core/EntryPoint.h"
 
-namespace CatEngine
-{
-        class Sandbox : public Application
+#include "Sandbox2D.h"
+
+
+        class Sandbox : public CatEngine::Application
         {
         public:
-                Sandbox()
-                {
-                        CE_CLI_INFO("Application Initialized");
+                Sandbox(CatEngine::ApplicationSpecification& specification)
+                	:Application(specification)
+		{
+                        PushLayer(new Sandbox2D());
                 }
         };
 
-	Application* CreateApplication()
+CatEngine::Application* CatEngine::CreateApplication(ApplicationCommandLineArgs args)
 	{
-                return new Sandbox();
+		ApplicationSpecification spec;
+		spec.Name = "Sandbox";
+		spec.WorkingDirectory = ".";
+		spec.CommandlineArgs = args;
+                return new Sandbox(spec);
 	}
-}
+

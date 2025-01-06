@@ -12,7 +12,8 @@ target_precompile_headers(CatEngine PRIVATE src/CatEngine/cepch.h)
 # Local Includes
 
 target_include_directories(CatEngine PRIVATE include ${PROJECT_SOURCE_DIR}/vendors/spdlog/include)
-#target_include_directories(CatEngine PRIVATE include ${PROJECT_SOURCE_DIR}/vendors/glad/include)
+target_include_directories(CatEngine PRIVATE include ${PROJECT_SOURCE_DIR}/vendors/glad/include)
+target_include_directories(CatEngine PRIVATE include ${PROJECT_SOURCE_DIR}/vendors/glm)
 target_include_directories(CatEngine PUBLIC include ${PROJECT_SOURCE_DIR}/src)
 target_include_directories(CatEngine PUBLIC include ${PROJECT_SOURCE_DIR}/src/CatEngine) 
 

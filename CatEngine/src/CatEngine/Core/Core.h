@@ -2,7 +2,10 @@
 #include <memory>
 
 #include <signal.h>
-#define CE_DEBUGBREAK() raise(SIGTRAP)
+#define CE_ASSERT(x) if (!(x)) {raise(SIGTRAP);}
+
+#define CE_PROFILE_FUNCTION()
+#define CE_PROFILE_SCOPE()
 
 #define BIND_EVENT_FN(fn) [this](auto&&... args) -> decltype(auto) { return this->fn(std::forward<decltype(args)>(args)...); }
 
