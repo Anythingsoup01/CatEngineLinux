@@ -19,7 +19,9 @@ namespace CatEngine
 		m_Window = Window::Create(WindowProps(m_Specification.Name));
                 m_Window->SetVSync(true);
 		m_Window->SetEventCallback(BIND_EVENT_FN(Application::OnEvent));
-
+		
+		m_ImGuiLayer = new ImGuiLayer();
+		PushOverlay(m_ImGuiLayer);
         }
 
         Application::~Application()
@@ -37,6 +39,11 @@ namespace CatEngine
 
 			for (Layer* layer : m_LayerStack)
 				layer->OnUpdate(deltaTime);
+			
+			m_ImGuiLayer->Begin();
+			for (Layer* layer : m_LayerStack)
+				layer->OnImGuiDraw();
+			m_ImGuiLayer->End();
 
 			m_Window->OnUpdate();
                 }

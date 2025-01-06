@@ -6,8 +6,6 @@
 #include "CatEngine/Event/KeyEvents.h"
 #include "CatEngine/Event/MouseEvents.h"
 
-
-
 namespace CatEngine {
         // Setting GLFW Functions and Variables
         static bool s_GLFWInitialized = false;
@@ -67,8 +65,10 @@ namespace CatEngine {
 		}
 
                 m_Window = glfwCreateWindow((int)props.Width, (int)props.Height, m_Data.Title.c_str(), nullptr, nullptr);
-		
-		glfwMakeContextCurrent(m_Window);
+			
+		m_Context = GraphicsContext::Create(m_Window);
+		m_Context->Init();
+					
 
 		glfwSetWindowUserPointer(m_Window, &m_Data);
 

@@ -4,6 +4,8 @@
 #include <signal.h>
 #define CE_ASSERT(x) if (!(x)) {raise(SIGTRAP);}
 
+#define GLFW_INCLUDE_NONE
+
 #define CE_PROFILE_FUNCTION()
 #define CE_PROFILE_SCOPE()
 

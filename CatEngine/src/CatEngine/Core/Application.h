@@ -9,6 +9,8 @@
 
 #include "Layers/LayerStack.h"
 
+#include "ImGui/ImGuiLayer.h"
+
 namespace CatEngine
 {
 
@@ -39,14 +41,17 @@ namespace CatEngine
                 ~Application();
 
 		static inline Application& Get() { return *s_Instance; }
+		
 		inline Window& GetWindow() {return *m_Window; }
+		
+		ImGuiLayer* GetImGuiLayer() { return m_ImGuiLayer; }
 
                 void Run();
 		void OnEvent(Event& e);
-
+		
 		void PushLayer(Layer* layer);
 		void PushOverlay(Layer* overlay);
-
+		
 		void SubmitToMainThread(const std::function<void()>& function);
 		void ExecuteMainThreadQueue();
 	public:
@@ -62,6 +67,7 @@ namespace CatEngine
 		bool OnWindowClose(WindowCloseEvent& e); // TODO: With ImGui, Make a way to close the application
 	private:
 		Scope<Window> m_Window;
+		ImGuiLayer* m_ImGuiLayer;
 
 		float m_LastFrameTime = 0.f;
 

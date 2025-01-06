@@ -1,6 +1,7 @@
 #pragma once
 
-#include "Core/Window.h"
+#include "CatEngine/Core/Window.h"
+#include "CatEngine/Renderer/GraphicsContext.h"
 
 #include "GLFW/glfw3.h"
 
@@ -24,7 +25,8 @@ namespace CatEngine {
 
         private:
                 GLFWwindow* m_Window;
-                
+		Scope<GraphicsContext> m_Context;
+
 		struct WindowData {
                         std::string Title;
                         unsigned int Width, Height;

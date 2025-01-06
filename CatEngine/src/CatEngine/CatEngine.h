@@ -11,6 +11,8 @@
 #include "CatEngine/Core/MouseButtonCodes.h"
 
 #include "CatEngine/Layers/Layer.h"
+#include "CatEngine/ImGui/ImGuiLayer.h"
+
 
 // Renderer ----------------------------
 

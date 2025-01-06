@@ -11,7 +11,8 @@ add_executable(SandboxApp ${SOURCE_FILES})
 
 target_include_directories(SandboxApp PRIVATE include ${CMAKE_SOURCE_DIR}/CatEngine/src/CatEngine)
 target_include_directories(SandboxApp PRIVATE include ${CMAKE_SOURCE_DIR}/CatEngine/vendors/spdlog/include)
-#target_include_directories(SandboxApp PRIVATE include ${CMAKE_SOURCE_DIR}/CatEngine/vendors/glad/include)
+target_include_directories(SandboxApp PRIVATE include ${CMAKE_SOURCE_DIR}/CatEngine/vendors/glad/include)
+target_include_directories(SandboxApp PRIVATE include ${CMAKE_SOURCE_DIR}/CatEngine/vendors/ImGui)
 
 target_link_libraries(SandboxApp CatEngine)
 
